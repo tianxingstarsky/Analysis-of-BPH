@@ -43,14 +43,9 @@
 | 旧基线（修复前） | 0.7090 | 全自动 |
 | MedSAM2 零样本（每层框提示） | 0.9356 | 每层 1 框 |
 
-最优模型预测可视化（绿=标注，红=预测，重合=黄色；逐病例 3D Dice 见文件名）：
+最优模型预测可视化示例（绿=标注、红=预测、重合=黄色）：
 
-<p float="left">
-  <img src="figures/overlay_unet_best_p24.png" width="24%" />
-  <img src="figures/overlay_unet_best_p24b.png" width="24%" />
-  <img src="figures/overlay_unet_best_p18.png" width="24%" />
-  <img src="figures/overlay_unet_best_p06.png" width="24%" />
-</p>
+![最优模型示例](figures/overlay_unet_best_p24b.png)
 
 ### 3.2 消融分析：增强方案 × 通道注意力
 
@@ -84,16 +79,16 @@
 | MedSAM2 安全微调后（抖动框 ±15%） | **0.9325** | 同上（微调前仅 0.9121） |
 | MedSAM2 单框跨层传播（微调后） | 0.6477 | 仅 1 框 |
 
+三个模型的同切片直接对比（4 个验证病例的中层切片，每格下方为该切片 Dice；
+绿=标注、红=预测、重合=黄色）：
+
+![三模型对比](figures/fig_compare_unet_medsam2.png)
+
+各病例（中层切片）：U-Net / 零样本 / 微调 = p06 0.878/0.948/0.943，p18 0.933/0.970/0.971，
+p24 0.910/0.918/0.961，p40 0.938/0.936/0.940 —— **微调后在 4 例中 3 例优于零样本**
+（p24 +0.043 最明显），验证了安全微调的增益。
+
 ![MedSAM2 分病例对比](figures/fig_medsam2_per_case.png)
-
-MedSAM2 零样本预测可视化（每层框提示协议，绿=标注、红=预测、重合=黄色）：
-
-<p float="left">
-  <img src="figures/overlay_medsam2_p06.png" width="24%" />
-  <img src="figures/overlay_medsam2_p18.png" width="24%" />
-  <img src="figures/overlay_medsam2_p24.png" width="24%" />
-  <img src="figures/overlay_medsam2_p40.png" width="24%" />
-</p>
 
 **分析**：
 1. **基础模型零样本（0.936）即超越从头训练的专用模型（0.873）**——印证小数据医学 AI
