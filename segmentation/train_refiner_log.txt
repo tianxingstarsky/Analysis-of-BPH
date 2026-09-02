@@ -1,0 +1,32 @@
+coarse masks [train] done
+coarse masks [val] done
+F:\Unet_test\Analysis-of-BPH\segmentation\train_refiner.py:110: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:837.)
+  tot += float(loss)
+epoch 1/25: train loss 1.1180 | val 2D dice 0.8292
+epoch 2/25: train loss 0.9493 | val 2D dice 0.8250
+epoch 3/25: train loss 0.8657 | val 2D dice 0.8151
+epoch 4/25: train loss 0.7913 | val 2D dice 0.8285
+epoch 5/25: train loss 0.7187 | val 2D dice 0.8226
+epoch 6/25: train loss 0.6485 | val 2D dice 0.8295
+epoch 7/25: train loss 0.5860 | val 2D dice 0.8341
+epoch 8/25: train loss 0.5282 | val 2D dice 0.8333
+epoch 9/25: train loss 0.4770 | val 2D dice 0.8380
+epoch 10/25: train loss 0.4326 | val 2D dice 0.8348
+epoch 11/25: train loss 0.3981 | val 2D dice 0.8375
+epoch 12/25: train loss 0.3685 | val 2D dice 0.8372
+epoch 13/25: train loss 0.3418 | val 2D dice 0.8406
+epoch 14/25: train loss 0.3214 | val 2D dice 0.8430
+epoch 15/25: train loss 0.3033 | val 2D dice 0.8390
+epoch 16/25: train loss 0.2911 | val 2D dice 0.8424
+epoch 17/25: train loss 0.2795 | val 2D dice 0.8444
+epoch 18/25: train loss 0.2710 | val 2D dice 0.8477
+epoch 19/25: train loss 0.2582 | val 2D dice 0.8461
+epoch 20/25: train loss 0.2515 | val 2D dice 0.8442
+epoch 21/25: train loss 0.2453 | val 2D dice 0.8469
+epoch 22/25: train loss 0.2379 | val 2D dice 0.8445
+epoch 23/25: train loss 0.2394 | val 2D dice 0.8428
+epoch 24/25: train loss 0.2323 | val 2D dice 0.8488
+epoch 25/25: train loss 0.2258 | val 2D dice 0.8330
+best val 2D dice: 0.8487971455139592
+refined per-case 3D Dice: 0.8894 (raw was 0.8725)
