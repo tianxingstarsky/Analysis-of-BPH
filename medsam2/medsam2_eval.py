@@ -12,11 +12,24 @@ import numpy as np
 import torch
 from PIL import Image
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "MedSAM2"))
+def find_medsam2_dir():
+    cands = [
+        os.environ.get('MEDSAM2_DIR'),
+        os.path.join(ROOT, 'MedSAM2'),
+        os.path.join(os.path.dirname(ROOT), 'MedSAM2'),
+    ]
+    for c in cands:
+        if c and os.path.isdir(os.path.join(c, 'sam2')):
+            return c
+    raise FileNotFoundError('clone MedSAM2 next to this repo or set MEDSAM2_DIR env var')
+
+
+MEDSAM2_DIR = find_medsam2_dir()
+sys.path.insert(0, MEDSAM2_DIR)
 from sam2.build_sam import build_sam2_video_predictor
 
 CFG = "configs/sam2.1_hiera_t512.yaml"
-CKPT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "MedSAM2", "checkpoints", "MedSAM2_latest.pt")
+CKPT = os.path.join(MEDSAM2_DIR, "checkpoints", "MedSAM2_latest.pt")
 VAL = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "prostate_slices", "val")
 TMP = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "medsam2_frames")
 

@@ -86,6 +86,15 @@
 
 ![MedSAM2 分病例对比](figures/fig_medsam2_per_case.png)
 
+MedSAM2 零样本预测可视化（每层框提示协议，绿=标注、红=预测、重合=黄色）：
+
+<p float="left">
+  <img src="figures/overlay_medsam2_p06.png" width="24%" />
+  <img src="figures/overlay_medsam2_p18.png" width="24%" />
+  <img src="figures/overlay_medsam2_p24.png" width="24%" />
+  <img src="figures/overlay_medsam2_p40.png" width="24%" />
+</p>
+
 **分析**：
 1. **基础模型零样本（0.936）即超越从头训练的专用模型（0.873）**——印证小数据医学 AI
    中"预训练权重 > 从零训练"的规律；
