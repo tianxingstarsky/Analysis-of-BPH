@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+checkpoints/
+dataset/
+data/prostate_slices/
+medsam2_frames/
+wandb/
+*.pth
+*.pt
