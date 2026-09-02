@@ -1,0 +1,61 @@
+coarse masks [train] done
+coarse masks [val] done
+F:\Unet_test\Analysis-of-BPH\segmentation\train_refiner_pos.py:123: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:837.)
+  tot += float(loss)
+epoch 1/25: train loss 1.2467 | val 2D dice 0.8048
+epoch 2/25: train loss 1.1004 | val 2D dice 0.8066
+epoch 3/25: train loss 1.0251 | val 2D dice 0.8181
+epoch 4/25: train loss 0.9595 | val 2D dice 0.8222
+epoch 5/25: train loss 0.8974 | val 2D dice 0.8202
+epoch 6/25: train loss 0.8352 | val 2D dice 0.8356
+epoch 7/25: train loss 0.7746 | val 2D dice 0.8253
+epoch 8/25: train loss 0.7170 | val 2D dice 0.8222
+epoch 9/25: train loss 0.6607 | val 2D dice 0.8398
+epoch 10/25: train loss 0.6072 | val 2D dice 0.8444
+epoch 11/25: train loss 0.5578 | val 2D dice 0.8385
+epoch 12/25: train loss 0.5130 | val 2D dice 0.8369
+epoch 13/25: train loss 0.4720 | val 2D dice 0.8365
+epoch 14/25: train loss 0.4360 | val 2D dice 0.8427
+epoch 15/25: train loss 0.4037 | val 2D dice 0.8517
+epoch 16/25: train loss 0.3745 | val 2D dice 0.8477
+epoch 17/25: train loss 0.3498 | val 2D dice 0.8426
+epoch 18/25: train loss 0.3286 | val 2D dice 0.8503
+epoch 19/25: train loss 0.3105 | val 2D dice 0.8497
+epoch 20/25: train loss 0.2977 | val 2D dice 0.8474
+epoch 21/25: train loss 0.2865 | val 2D dice 0.8478
+epoch 22/25: train loss 0.2756 | val 2D dice 0.8463
+epoch 23/25: train loss 0.2654 | val 2D dice 0.8495
+epoch 24/25: train loss 0.2589 | val 2D dice 0.8526
+epoch 25/25: train loss 0.2495 | val 2D dice 0.8496
+best val 2D dice: 0.8525699587130948
+Traceback (most recent call last):
+  File "F:\Unet_test\Analysis-of-BPH\segmentation\train_refiner_pos.py", line 155, in <module>
+    p = (torch.sigmoid(refiner(torch.from_numpy(two[None]).float().to(device)))[0, 0] > 0.5).cpu().numpy()
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "F:\Unet_test\Analysis-of-BPH\segmentation\unet\unet_model.py", line 26, in forward
+    x1 = self.inc(x)
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "F:\Unet_test\Analysis-of-BPH\segmentation\unet\unet_parts.py", line 49, in forward
+    x = self.double_conv(x)
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\container.py", line 253, in forward
+    input = module(input)
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "C:\Users\tianx\.conda\envs\myenv\lib\site-packages\torch\nn\modules\conv.py", line 548, in _conv_forward
+    return F.conv2d(
+RuntimeError: Given groups=1, weight of size [64, 5, 3, 3], expected input[1, 2, 320, 320] to have 5 channels, but got 2 channels instead
